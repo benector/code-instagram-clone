@@ -1,21 +1,15 @@
 import Comment from "./Comment";
+import PostHeader from "./PostHeader";
+
 
 const Post = (props) => 
           <div class="post">
             <div class="post-body">
-              <div class="post-header">
-                <div class="post-author"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS275fgbLRUvZTthUPudJHdKymk096IE-8LFg&usqp=CAU"/>
-                <b>{props.userName}</b> 
-                </div>
-                <i class="fas fa-ellipsis-h"></i>
-
-
-
-
-              </div> 
-              <br/>
-                <img  src={props.imgUrl}/>
-                <p>{props.imgDescription}</p>
+              <PostHeader  userName={props.userName} />
+                  <img  src={props.imgUrl}/>
+              <div class="post-description">
+                  <p> <b>{props.userName}</b> {props.imgDescription}</p>
+              </div>
                 <Comment/>
             </div>
           </div>

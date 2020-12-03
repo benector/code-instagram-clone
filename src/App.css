@@ -51,17 +51,36 @@ min-height: 80vh;
 .post-header{
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 10px 15px;
 }
-.post-header img{
+.post-header .post-author img{
   border-radius: 100%;
-  width:60px;
+  width:50px;
 
 }
+
+.post-header .post-author{
+  font-size: 14px;
+  column-gap: 25px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-header .post-options{
+  font-size: 20px;
+  padding: 1rem;
+  color: grey;
+  display: flex;
+  align-items: center;
+}
+
 .post-body{
   max-width:90%;
   box-shadow: 0px 0px 4px grey;
   margin-bottom:1rem;
+  border-radius: 10px;
+
 }
 
 @media (min-width:900px){
@@ -72,6 +91,63 @@ min-height: 80vh;
 
 .post-body img{
   max-width: 100%;
+}
+
+.post-description{
+  padding: 1rem;
+  font-size: 14px;
+  display: flex;
+  text-align: left;
+  align-items: flex-start;
+
+}
+.post-description b{
+  padding-right: 2px;
+}
+
+.post-comment{
+  column-gap: 5px;
+  margin: 5px;
+  padding: 1%;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  border: 1px solid #bbc8cc;
+  border-radius: 35px;
+
+}
+
+.post-comment img{
+  border-radius: 100%;
+  width:50px;
+  
+
+}
+
+.post-comment textarea{
+  resize: none;
+  padding:3px;
+  max-height: 100%;
+  margin:5px;
+  outline: none;
+  width: 80%;
+  overflow-y: auto;
+  overflow: hidden;
+  border: none;
+
+}
+.post-comment button{
+  padding:15px;
+  font-size: 12px;
+  background-color: transparent;
+  outline: none;
+  border-style: none;
+  border-radius: 35px;
+}
+
+.post-comment button:hover{
+  background-color: rgb(255, 216, 42);
+  font-weight: bold;
 }
 
 .post-list{
