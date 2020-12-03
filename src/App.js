@@ -1,5 +1,8 @@
 import logo from './logo.png';
 import './App.css';
+import Footer from "./Footer";
+import PostList from "./PostList";
+
 
 function App() {
   return (
@@ -9,21 +12,9 @@ function App() {
         <p>
           Code Instagram Clone
         </p>
-        <a
-          className="App-link"
-          href="https://appmasters.io/"
-          target="_blank"
-        >
-          App Masters
-        </a>
-        <a
-            className="App-link"
-            href="https://codejr.com.br/"
-            target="_blank"
-        >
-          Code Júnior
-        </a>
       </header>
+      <PostList/>
+      <Footer/>
     </div>
   );
 }
