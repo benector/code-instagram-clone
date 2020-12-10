@@ -1,0 +1,24 @@
+.postList{
+  width: 65%;
+  padding: 2rem 0;
+}
+
+
+.list {
+  width: 65%;
+  padding: 2rem 0;
+  box-sizing: border-box;
+
+
+}
+
+@media(max-width:768px){
+.list{  
+  padding: 0;
+  }
+}
+@media(max-width:1000px){
+  .list{
+    width: 100%;
+  }
+}

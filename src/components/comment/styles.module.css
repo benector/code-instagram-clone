@@ -1,0 +1,56 @@
+
+.comment{
+    column-gap: 5px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: space-between;
+    border-top: 1px solid rgb(209, 209, 209);
+
+  
+  }
+  
+  .commentImg{
+    border-radius: 100%;
+    width:40px;
+    
+  
+  }
+  
+  textarea{
+    resize: none;
+    padding:3px;
+    max-height: 100%;
+    margin:5px;
+    outline: none;
+    width: 80%;
+    overflow-y: auto;
+    overflow: hidden;
+    border: none;
+    background-color: transparent;
+    
+  
+  }
+  
+  
+  button{
+    padding: 0 20px;
+    font-size: 13px;
+    transition: font-size 0.3s ease;
+    background-color: transparent;
+    color: rgb(238, 197, 14);
+    outline: none;
+    border-style: none;
+    font-weight: bold;
+  
+  }
+  
+ button:hover{
+    font-size: 15px;
+    transition: font-size 0.3s ease;
+  }
+
+  .button.disable {
+    opacity: 0.7;
+   }

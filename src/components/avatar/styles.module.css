@@ -1,0 +1,13 @@
+.userAvatar img{
+    margin: 2px;
+    border-radius: 100%;
+    border: 3px solid white;
+  
+  }
+  
+.userAvatar{
+    background: linear-gradient(to right, red, purple);
+    display: flex;
+    align-items: center;
+    border-radius: 100%;
+  }

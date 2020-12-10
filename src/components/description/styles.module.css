@@ -1,0 +1,14 @@
+
+.description{
+    padding: 0 1rem;
+    font-size: 14px;
+    display: flex;
+    text-align: left;
+    align-items: flex-start;
+  
+  }
+.description b{
+    padding-right: 2px;
+  }
+
+  
