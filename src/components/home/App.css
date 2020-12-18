@@ -53,13 +53,14 @@ min-height: 80vh;
 .search-bar{
   padding: 5px;
   display: flex;
+  justify-content: space-between;
   column-gap: 10px;  
   align-items: center;
   background-color: #FAFAFA;
   color:gray;
   border-radius: 2px;
   box-shadow: 0px 0px 1px black;
-
+  width: 20%;
 
 }
 
@@ -68,8 +69,10 @@ min-height: 80vh;
 }
 
 .search-bar input{
+  background-color: transparent;
   border:none;
   outline: none;
+  max-width: 30%;
 }
 
 .menu{
@@ -80,12 +83,18 @@ min-height: 80vh;
 }
 .menu .userAvatar{
   border-radius: 100%;
-  width:20px;
+  width:25px;
 }
+
+.menu .menu-item:hover{
+  cursor: pointer;
+}
+
 main{
   display: flex;
   margin: 0 10vw;
 }
+
 .sidebar{
   width:30%;
 }

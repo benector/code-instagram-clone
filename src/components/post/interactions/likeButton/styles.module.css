@@ -1,0 +1,20 @@
+.interaction{
+    color:rgb(38,38,38);
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 15px;
+    font-size: 25px;
+  }
+  
+  .buttons svg {
+    padding-right: 15px;
+    font-weight: 100;
+  
+  
+  }
+  
+  .liked {
+    color: red;
+  }
+  

@@ -45,5 +45,18 @@
 
 .buttons svg {
   padding-right: 15px;
+  font-weight: 100;
 
+
+}
+
+.liked {
+  color: red;
+}
+
+.likes{
+  padding: 0 20px;
+  font-size: 13px;
+  color: rgb(238, 197, 14);  
+  font-weight: bold;
 }

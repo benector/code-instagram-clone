@@ -8,11 +8,11 @@ import Footer from "../footer";
 import PostList from "../post-list";
 import Avatar from '../avatar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faHome} from  '@fortawesome/free-solid-svg-icons';
-import { faHeart, faPaperPlane, faCompass} from  '@fortawesome/free-regular-svg-icons';
+import { faSearch, faHome, faSignOutAlt} from  '@fortawesome/free-solid-svg-icons';
+import { faHeart, faPaperPlane, faCompass, faTimesCircle} from  '@fortawesome/free-regular-svg-icons';
 
 
-const posts = [
+/*const posts = [
   {
     user: {name:"Bea", avatar:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS275fgbLRUvZTthUPudJHdKymk096IE-8LFg&usqp=CAU"},
     imageUrl : "https://news.itu.int/wp-content/uploads/2018/07/citymobility-min-e1530886118305.jpg",
@@ -29,15 +29,15 @@ const posts = [
     imageUrl : "https://codejr.com.br/wp-content/uploads/2020/09/quem-somos.jpg",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   }
-];
+];*/
 
 function Home() {
   // Check if have posts now
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
-  //const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
 
-  /*useEffect(() => {
+  useEffect(() => {
       setLoading(true);
       API.get("/posts")
         .then((response) => {
@@ -49,8 +49,14 @@ function Home() {
           setError(apiError.response.data.error);
         });
 
-   }, []);*/
-  
+   }, []);
+
+
+   const handleLogout = () => {
+     localStorage.clear();
+     window.location.reload();
+   }
+ 
   
   return (
     <div className="App">
@@ -59,17 +65,18 @@ function Home() {
         <div className="search-bar">
           <FontAwesomeIcon icon={faSearch} />
           <input type="text"  placeholder="Pesquisar"/>
+          <FontAwesomeIcon icon={faTimesCircle} />
         </div>
         <div className="menu">
               <FontAwesomeIcon icon={faHome} />
-              <FontAwesomeIcon icon={faPaperPlane} />
-              <FontAwesomeIcon icon={faCompass} />
               <FontAwesomeIcon icon={faHeart} />
+            <FontAwesomeIcon icon={faSignOutAlt} className="menu-item" onClick={handleLogout}/>
               <img className="userAvatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS275fgbLRUvZTthUPudJHdKymk096IE-8LFg&usqp=CAU"/>
+
         </div>
       </header>
-      <PostList posts={posts} /> 
-      <Footer />
+      <Link to="/criar">Criar post</Link>
+      {!loading ? <PostList posts={posts} /> : <p>Carregando...</p>}      <Footer />
     </div>
   );
 }

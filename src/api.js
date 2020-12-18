@@ -9,6 +9,9 @@ if (localStorage.getItem("auth-token")) {
     Authorization: localStorage.getItem("auth-token"),
   };
 }
+axiosConfig.headers = {
+  Authorization: localStorage.getItem("auth-token"),
+};
 
 export const API = axios.create(axiosConfig);
 
