@@ -60,3 +60,16 @@
   color: rgb(238, 197, 14);  
   font-weight: bold;
 }
+
+.commentsBox{
+  padding: 0 1rem;
+
+}
+
+.commentsBox b{
+  font-size: 14px;
+}
+.commentsBox p{
+  color: grey;
+  font-size: 12px;
+}

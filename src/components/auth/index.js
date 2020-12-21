@@ -1,5 +1,7 @@
 import React from "react";
 import styles from './styles.module.css';
+import logo from '../../logo.png';
+import codeLogo from '../../code-logo.png'
 
 
 class AuthView extends React.Component {
@@ -25,8 +27,12 @@ class AuthView extends React.Component {
       <div
         className={styles.login}
       >
-          <h1>Entre para ver o conteúdo</h1>
-          <p>Bem vindo, {this.state.name}</p>
+        <div className={styles.authForm}>
+          <img className = {styles.logo} src={logo} alt="logo" />
+          <div className = {styles.especial}>
+            <img src={codeLogo}/>
+            <b>edition</b>
+          </div>
           <input
             placeholder="Nome"
             disabled={this.props.loading}
@@ -45,13 +51,15 @@ class AuthView extends React.Component {
             onChange={(event) => this.handleChange("password", event)}
             value={this.state.password}
           />
-          <button
+          <button className={styles.enterButton}
             disabled={this.props.loading}
             onClick={() => this.props.handleLogin(this.state)}
           >
             Entrar
           </button>
           {this.props.error && <p>{this.props.error}</p>}
+          <small className="footer"> Por <a href="https://www.linkedin.com/in/beatrizbenedicto/" target="_blank" rel="norefferr"> Beatriz Benedicto</a>, 2020</small>
+        </div>
       </div>
     );
   }

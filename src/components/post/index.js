@@ -11,8 +11,9 @@ import { faComment,  faBookmark, faPaperPlane} from  '@fortawesome/free-regular-
 const Post = (props) => {
 
           const { post } = props;
-          const[comments, setComments] = useState (post.comments.slice(1,3));
-          const [commentQuantity, setCommentQuantity] = useState(3);
+          const[comments, setComments] = useState (post.comments);
+          const  initialState = comments.length;
+          const [commentQuantity, setCommentQuantity] = useState(2);
           const [likeCount, setLikeCount] = useState(post.like);
 
 
@@ -22,11 +23,14 @@ const Post = (props) => {
           setComments(commentList);
           }
 
-          
+          const viewComents = () => {
+            
+          }
+
           return ( 
             <div className = {styles.post}>
             <div className = {styles.postBody}>
-              <PostHeader  userName={post.user.name} userAvatar={post.user.avatar} />
+              <PostHeader  userName={post.user.name} postTitle={post.title} userAvatar={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS275fgbLRUvZTthUPudJHdKymk096IE-8LFg&usqp=CAU"} />
               <div className = {styles.postImg}>
                   <img  src={post.imageUrl} alt={`imagem do post ${post.id}`}/>
               </div>
@@ -46,16 +50,17 @@ const Post = (props) => {
               <div className={styles.likes}>
                   <p>{likeCount} likes</p>
               </div>
-              <div>
-                  {props.post.comments.map(comment => {
-                      return <p key={comment.id} style={{color: 'grey', fontSize: 10}}>{comment.text}</p>
+              <div className={styles.commentsBox}>
+                  {comments.length > 2 ?  <p onClick={() => setCommentQuantity(initialState)}>Ver todos {initialState} comentários</p> 
+                  : comments.lenght? <p>Seja o primeiro a comentar</p> : ""}
+                  {comments.slice(0, commentQuantity).map(comment => {
+                      return <p key={comment.id}>{comment.text}</p>
                   })}
               </div>
               {commentQuantity < comments.length && (
-                  <button onClick={() => setCommentQuantity(commentQuantity+3)}>mostrar</button>
+                  <button onClick={() => setCommentQuantity(commentQuantity+3)}>Mostrar mais</button>
               )}
               <Comment post_id = {post.id} addNewComment={addNewComment}/>
-              <small>44 minutes ago</small>
             </div>
           </div>
         );

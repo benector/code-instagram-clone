@@ -1,0 +1,80 @@
+
+.appHeader {
+    background-color: rgb(253,198,27);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+  
+  }
+
+.appLogo {
+    max-height: 90%;
+    pointer-events: none;
+}
+.searchBar{
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 10px;  
+    align-items: center;
+    background-color: #FAFAFA;
+    color:gray;
+    border-radius: 2px;
+    box-shadow: 0px 0px 1px black;
+    width: 200px;
+  
+  }
+  
+  .searchBbar svg{
+    width: 15px;
+
+  }
+  
+  .searchBar input{
+    background-color: transparent;
+    border:none;
+    outline: none;
+    max-width: 30%;
+  }
+  
+  .menu{
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    column-gap: 25px;
+    color: black;
+  }
+
+  .menu a, .menu svg{
+    color: rgb(38,38,38);
+
+  }
+  .userAvatar{
+    border-radius: 100%;
+    width:25px;
+  }
+  
+
+  .menuItem:hover{
+    cursor: pointer;
+  }
+
+  @media(max-width:768px){
+    .searchBar{
+      display: none;
+    }
+  }
+
+ @media(max-width:768px){
+  
+    .appHeader{
+      padding: 0;
+    }
+}
+  

@@ -9,7 +9,7 @@ const PostHeader = (props) =>
             <div className={styles.postHeader}>
                 <div className={styles.postAuthor}>
                     <Avatar userAvatar={props.userAvatar} border={true} width="40px"/>
-                    <b>{props.userName}</b> 
+                    <b>{props.userName} - {props.postTitle}</b> 
                 </div>
                 <div className={styles.postOptions}>
                     <FontAwesomeIcon icon={faEllipsisH} />

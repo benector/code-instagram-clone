@@ -2,7 +2,7 @@ import React, { useState , useContext} from "react";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 import AuthView from "./components/auth";
 import Home from "./components/home";
-import PostForm from "./components/postForm";
+import CreatePost from "./components/create";
 
 import { API, setAuthToken } from "./api";
 
@@ -12,13 +12,10 @@ const AppContext = React.createContext({});
 const Routes = () => {
     const initialState =  localStorage.getItem("auth-token");
     const [isLogged, setIsLogged] = useState(initialState);
-    const [tokenIsValid, setTokenIsValid] = useState(initialState);
 
     const store = {
       isLogged: {get : isLogged, set : setIsLogged},
-      tokenIsValid : {get: tokenIsValid, set: setTokenIsValid}
     }
-
 
   return (
     <AppContext.Provider value = {store}>
@@ -33,7 +30,7 @@ const PrivateRoutes = () => {
     return (
       <Switch>
         <Route path="/criar">
-          <PostForm />
+          <CreatePost/>
         </Route>
         <Route path="/">
           <Home />
@@ -61,12 +58,10 @@ const PublicRoutes = () => {
                 API.post("/users/login", user)
                   .then((response) => {
                     setAuthToken(response.data.token);
-                    context.tokenIsValid.set(response.data.token);
                     context.isLogged.set(response.data.token)
                     setLoading(false);
                   })
                   .catch((apiError) => {
-                    context.tokenIsValid.set(false);
                     context.isLogged.set(false);
                     setLoading(false);
                     setError(apiError.response.data.error);
@@ -84,13 +79,12 @@ const AppAuthRoutes = () => {
     // Check if have posts now
     const context = useContext(AppContext);
 
-    console.log('islogged',context.isLogged);
-    console.log('tokenIsValid',context.tokenIsValid);
-
+   // console.log('islogged',context.isLogged.get);
+   // console.log('tokenIsValid',context.tokenIsValid.get);
 
     return (
       <BrowserRouter>
-        {context.isLogged.get && context.tokenIsValid.get ? (
+        {context.isLogged.get  ? (
           <PrivateRoutes/>
         ) : (
           <PublicRoutes />

@@ -1,15 +1,12 @@
 
 import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
-import { API  } from "../../api";
-import './App.css';
-import logo from './logo.png';
+import { API , getAuthToken } from "../../api";
+import Header from "../header"
 import Footer from "../footer";
 import PostList from "../post-list";
-import Avatar from '../avatar';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faHome, faSignOutAlt} from  '@fortawesome/free-solid-svg-icons';
-import { faHeart, faPaperPlane, faCompass, faTimesCircle} from  '@fortawesome/free-regular-svg-icons';
+import PostForm from "../postForm";
+import styles from './styles.module.css';
+
 
 
 /*const posts = [
@@ -36,47 +33,40 @@ function Home() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
   const [posts, setPosts] = useState([]);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
-  useEffect(() => {
-      setLoading(true);
-      API.get("/posts")
-        .then((response) => {
-          setPosts(response.data);
-          setLoading(false);
-        })
-        .catch((apiError) => {
-          setLoading(false);
-          setError(apiError.response.data.error);
-        });
-
-   }, []);
-
-
-   const handleLogout = () => {
-     localStorage.clear();
-     window.location.reload();
-   }
- 
+  window.addEventListener('resize', function(event){
+    setScreenWidth(window.innerWidth);
+    console.log(window.innerWidth);
+  })
   
+  useEffect(() => {
+    setLoading(true);
+    API.get("/posts")
+      .then((response) => {
+        setPosts(response.data);
+        setLoading(false);
+      })
+      .catch((apiError) => {
+        setLoading(false);
+        setError(apiError.response.data.error);
+      });
+  }, []);
+   
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <div className="search-bar">
-          <FontAwesomeIcon icon={faSearch} />
-          <input type="text"  placeholder="Pesquisar"/>
-          <FontAwesomeIcon icon={faTimesCircle} />
+    <div className={"App"}>
+      <Header />
+      <div className={styles.content}>
+        <div className={styles.mainContent}>
+          {!loading ? <PostList posts={posts} /> : <p>Carregando...</p>}    
+        </div>  
+        <div className={styles.sidebar}>
+              <PostForm style={{display : "block"}}/>
+              <Footer width={"30%"} display={screenWidth >1024 ? "unset" : "none"} />
         </div>
-        <div className="menu">
-              <FontAwesomeIcon icon={faHome} />
-              <FontAwesomeIcon icon={faHeart} />
-            <FontAwesomeIcon icon={faSignOutAlt} className="menu-item" onClick={handleLogout}/>
-              <img className="userAvatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS275fgbLRUvZTthUPudJHdKymk096IE-8LFg&usqp=CAU"/>
+        <Footer display={screenWidth > 1024 ? "none" : "unset"}/>
 
-        </div>
-      </header>
-      <Link to="/criar">Criar post</Link>
-      {!loading ? <PostList posts={posts} /> : <p>Carregando...</p>}      <Footer />
+      </div>
     </div>
   );
 }

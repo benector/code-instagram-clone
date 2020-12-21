@@ -6,7 +6,6 @@ import styles from './styles.module.css';
 const PostList = (props) =>     {
 
   return(
-    <main >
        <div className={styles.list}>
           {
             props.posts.map((post) => 
@@ -18,10 +17,6 @@ const PostList = (props) =>     {
           }
 
         </div>
-        <div className="sidebar">
-            sidebar
-        </div>
-    </main>
  
   );
 }
