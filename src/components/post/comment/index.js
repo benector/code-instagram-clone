@@ -22,6 +22,7 @@ const Comment = (props) => {
             if(result){
                 console.log(result.data);
                 props.addNewComment(result.data);
+                setText('');
             }
             setLoading(false);
         }catch(error){
@@ -38,7 +39,9 @@ const Comment = (props) => {
              value={text}
              onChange={event => setText(event.target.value)}
              />
-            <button className={classNames(styles.button, styles.disable)} onClick={handleComment}>Enviar</button>
+             {text ? <button onClick={handleComment}>Enviar</button> :
+                <button disabled className={classNames(styles.button, styles.disable)} >Enviar</button>
+            }
         </div>
     )
 }

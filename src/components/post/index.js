@@ -2,10 +2,11 @@ import { useState } from 'react';
 import Comment from "./comment";
 import Description from "./description";
 import PostHeader from "./post-header";
-import LikeButton from './interactions/likeButton';
+import { API } from '../../api';
 import styles from './styles.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faComment,  faBookmark, faPaperPlane} from  '@fortawesome/free-regular-svg-icons';
+import { faComment,  faBookmark, faPaperPlane, faHeart} from  '@fortawesome/free-regular-svg-icons';
+import {faHeart as fasHeart} from  '@fortawesome/free-solid-svg-icons';
 
  
 const Post = (props) => {
@@ -15,16 +16,34 @@ const Post = (props) => {
           const  initialState = comments.length;
           const [commentQuantity, setCommentQuantity] = useState(2);
           const [likeCount, setLikeCount] = useState(post.like);
+          const [loading, setLoading] = useState(false)
+          const [isLiked, setIsLiked] = useState(false);
+          const [error, setError] = useState(false);
 
+
+           const addLike = async (postId) => {
+            const countNow = likeCount;
+            try {
+              setLoading(true);
+              setLikeCount(countNow+1)
+              setIsLiked(true);        
+              const result = await API.patch(`/posts/${postId}/like`);
+              setLoading(false);
+              setLikeCount(result.data.like)
+            } catch (error) {
+              setLoading(false);
+              setLikeCount(countNow);
+              setIsLiked(false);
+              setError(error);
+              this.setState({ loading: false, error, likeCount: countNow });
+            }
+          }
+        
 
           const addNewComment = (comment) => {
           const commentList = [...comments];
           commentList.push(comment);
           setComments(commentList);
-          }
-
-          const viewComents = () => {
-            
           }
 
           return ( 
@@ -37,7 +56,11 @@ const Post = (props) => {
               <Description userName={post.user.name} postDescription={post.description}/>
               <div className={styles.interaction}>
                 <div className={styles.buttons}>
-                  <LikeButton likeCount={post.like} postId={post.id}/>
+                  {isLiked ?
+                   ( <FontAwesomeIcon className={styles.liked} icon={fasHeart}/>) :
+
+                   ( <FontAwesomeIcon onClick={() => addLike(post.id)} icon={faHeart} />)
+                  }
                   <FontAwesomeIcon icon={faComment} />
                   <FontAwesomeIcon icon={faPaperPlane} />
 

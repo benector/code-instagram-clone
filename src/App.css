@@ -52,6 +52,18 @@ input, textarea, button{
     -webkit-box-sizing: content-box;
     box-sizing: content-box
 }
+
+button{
+  padding: 0 20px;
+  font-size: 13px;
+  transition: font-size 0.3s ease;
+  background-color: transparent;
+  color: rgb(238, 197, 14);
+  outline: none;
+  border-style: none;
+  font-weight: bold;
+
+}
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
