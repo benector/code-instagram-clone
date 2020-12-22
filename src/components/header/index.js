@@ -1,5 +1,5 @@
 
-import { Link , useHistory} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Avatar from '../avatar';
 import logo from '../../logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,7 +14,6 @@ const handleLogout = () => {
   }
 
 const Header = () => {
-    const history = useHistory();
     return(
         <header className={styles.appHeader}>
                 <img src={logo} className={styles.appLogo}alt="logo" />

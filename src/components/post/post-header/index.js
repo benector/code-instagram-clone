@@ -14,8 +14,8 @@ const PostHeader = (props) =>
                         <Avatar userAvatar={props.userAvatar} border={true} width="40px"/>
                         <div className={styles.postAuthor}>
                             <b>{props.userName} - {props.postTitle}</b> 
-                            <small>
-                                {moment(props.createdAt).format('LLLL')}
+                            <small className="postDate">
+                                {moment(props.createdAt).format('LLL')}
                             </small>
                         </div>
                 </div>

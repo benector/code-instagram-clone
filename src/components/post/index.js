@@ -88,7 +88,7 @@ const Post = (props) => {
                   <button onClick={() => setCommentQuantity(commentQuantity+3)}>Mostrar mais</button>
               )}
               <Comment post_id = {post.id} addNewComment={addNewComment}/>
-            
+                
             </div>
           </div>
         );
