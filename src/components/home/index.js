@@ -49,7 +49,7 @@ function Home() {
       })
       .catch((apiError) => {
         setLoading(false);
-        setError(apiError.response.data.error);
+        setError(apiError.response.data);
       });
   }, []);
    
@@ -58,7 +58,17 @@ function Home() {
       <Header />
       <div className={styles.content}>
         <div className={styles.mainContent}>
-          {!loading ? <PostList posts={posts} /> : <p>Carregando...</p>}    
+            {loading ? 
+            <div className={styles.warnings}>
+                    <b>Carregando posts...</b>  
+            </div> 
+            :  error ? 
+            <div className={styles.warnings}>
+                    <b>Não foi possível acessar os posts, sua sessão provavelmente expirou, faça
+                login novamente.</b> 
+            </div> : 
+            <PostList posts={posts} /> 
+            }
         </div>  
         <div className={styles.sidebar}>
               <PostForm style={{display : "block"}}/>

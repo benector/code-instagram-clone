@@ -57,7 +57,17 @@ button, textarea{
 
   }
   
- 
+  .warnings{
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    font-size: 20px;
+    text-align: center;
+    margin: 0 1rem;
+  }
+
   @media(max-width:1024px){
     .sidebar{
       display: none;

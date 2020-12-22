@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   padding: 8px 15px;
+  align-items: center;
 }
 .userAvatar img{
   margin: 2px;
@@ -19,16 +20,25 @@
   border-radius: 100%;
 }
 
-
-.postHeader .postAuthor{
-  font-size: 14px;
-  column-gap: 25px;
-  align-items: center;
+.postInfos{
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.postHeader .postOptions{
+.postInfos small , .postInfos b{
+  padding-left: 15px;
+}
+
+.postAuthor{
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  
+}
+
+.postOptions{
   font-size: 20px;
   padding: 1rem;
   color:rgb(38,38,38);

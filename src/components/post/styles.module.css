@@ -10,6 +10,8 @@
   margin-bottom:1rem;
   border-radius: 2px;
   background-color: white;
+  padding-bottom: 10px;
+
 
 
 }
@@ -20,7 +22,6 @@
     box-shadow: none;
     margin:0;
     background-color: #FAFAFA;
-
   }
 }
 

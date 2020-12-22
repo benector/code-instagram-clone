@@ -6,9 +6,6 @@
     flex-direction: column;
     align-items: center;
     padding: 20px ;
-    max-width: 100%;
-    
-
 }
 
 .postForm input, textarea.mensagem{
@@ -27,7 +24,7 @@ textarea.mensagem{
 }
 .imgPreview{
     max-height: 200px;
-    width: 97%;
+    width: 99%;
     object-fit: cover;
     margin: 5px 0;
 }

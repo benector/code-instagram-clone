@@ -3,13 +3,21 @@ import { faEllipsisH } from '@fortawesome/free-solid-svg-icons'
 import styles from './styles.module.css';
 import Avatar from '../../avatar';
 
+import moment from 'moment';
+import 'moment/locale/pt';  
+moment.locale('pt');
 
 
 const PostHeader = (props) => 
             <div className={styles.postHeader}>
-                <div className={styles.postAuthor}>
-                    <Avatar userAvatar={props.userAvatar} border={true} width="40px"/>
-                    <b>{props.userName} - {props.postTitle}</b> 
+                <div className={styles.postInfos}>
+                        <Avatar userAvatar={props.userAvatar} border={true} width="40px"/>
+                        <div className={styles.postAuthor}>
+                            <b>{props.userName} - {props.postTitle}</b> 
+                            <small>
+                                {moment(props.createdAt).format('LLLL')}
+                            </small>
+                        </div>
                 </div>
                 <div className={styles.postOptions}>
                     <FontAwesomeIcon icon={faEllipsisH} />

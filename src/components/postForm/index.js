@@ -5,7 +5,7 @@ import Footer from "../footer";
 import { API } from "../../api";
 import styles from './styles.module.css';
 
-const PostForm = () => {
+const PostForm = (props) => {
   const history = useHistory();
 
   const [title, setTitle] = useState("");
@@ -36,7 +36,7 @@ const PostForm = () => {
 
   return (
       <div className={styles.addPost}>
-        <div className={styles.postForm}>
+        <div className={styles.postForm} style={props.width ? {width:props.width} : {maxWidth: "100%"}}>
           <h1 style={{textAlign: "center" }}>Criar novo post</h1>
           <input
             placeholder="Título"

@@ -8,10 +8,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment,  faBookmark, faPaperPlane, faHeart} from  '@fortawesome/free-regular-svg-icons';
 import {faHeart as fasHeart} from  '@fortawesome/free-solid-svg-icons';
 
+
+
+
  
 const Post = (props) => {
 
           const { post } = props;
+          console.log('post infos', post);
           const[comments, setComments] = useState (post.comments);
           const  initialState = comments.length;
           const [commentQuantity, setCommentQuantity] = useState(2);
@@ -49,7 +53,7 @@ const Post = (props) => {
           return ( 
             <div className = {styles.post}>
             <div className = {styles.postBody}>
-              <PostHeader  userName={post.user.name} postTitle={post.title} userAvatar={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS275fgbLRUvZTthUPudJHdKymk096IE-8LFg&usqp=CAU"} />
+              <PostHeader  userName={post.user.name} createdAt={post.created_at} postTitle={post.title} userAvatar={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS275fgbLRUvZTthUPudJHdKymk096IE-8LFg&usqp=CAU"} />
               <div className = {styles.postImg}>
                   <img  src={post.imageUrl} alt={`imagem do post ${post.id}`}/>
               </div>
@@ -84,6 +88,7 @@ const Post = (props) => {
                   <button onClick={() => setCommentQuantity(commentQuantity+3)}>Mostrar mais</button>
               )}
               <Comment post_id = {post.id} addNewComment={addNewComment}/>
+            
             </div>
           </div>
         );
