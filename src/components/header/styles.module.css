@@ -2,25 +2,30 @@
 .appHeader {
     background-color: rgb(253,198,27);
     display: flex;
-    justify-content: space-around;
     align-items: center;
     font-size: calc(10px + 2vmin);
     color: white;
-    height: 50px;
-    width: 100%;
+    height: 60px;
+    width: 100vw;
     position: fixed;
     top: 0;
     z-index: 10;
-    margin-bottom:auto;
-
-  
+    margin-bottom:auto;  
+    column-gap: 50px;
   }
 
 .appLogo {
-    max-height: 90%;
-    pointer-events: none;
+    width:30%;
+    display: flex;
+    justify-content: center;
+    
 }
-.searchBar{
+.logo{
+    width:130px;
+    pointer-events: none; 
+ 
+}
+.searchBarItens{
     padding: 5px 10px;
     display: flex;
     justify-content: space-between;
@@ -34,12 +39,17 @@
   
   }
   
-  .searchBbar svg{
+  .searchBar {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+  }
+  .searchBarIens svg{
     width: 15px;
 
   }
   
-  .searchBar input{
+  .searchBarItens input{
     background-color: transparent;
     border:none;
     outline: none;
@@ -47,16 +57,20 @@
   }
   
   .menu{
-    max-width: 100%;
+    max-width:30%;
     display: flex;
+    justify-content: center;
     align-items: center;
-    column-gap: 25px;
     color: black;
   }
 
   .menu a, .menu svg{
     color: rgb(38,38,38);
 
+  }
+
+  .menuItem{
+    margin: 0 15px;
   }
   .userAvatar{
     border-radius: 100%;
@@ -69,16 +83,30 @@
   }
 
  
-  @media(max-width:768px){
+  @media(max-width:700px){
+    .menuItem{
+      margin: 0 25px;
+    }
+
     .searchBar{
       display: none;
     }
-  }
+    .appLogo{
+      width: 40%;
 
- @media(max-width:768px){
-  
-    .appHeader{
-      padding: 0;
     }
-}
-  
+    .menu{
+      width: 60%;
+      margin-left: 10%;
+
+    }
+
+    .logo{
+      width: 100px;
+    }
+    .menuItem{
+      margin: 0 5vw;
+    }
+   
+    
+  }

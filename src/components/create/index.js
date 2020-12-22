@@ -17,7 +17,7 @@ const CreatePost = () =>{
         <div>
             <Header/>
             <div className={styles.content}>
-                <PostForm width = {screenWidth >= 768 ? 500 : null}/>
+                <PostForm redirect={true} width = {screenWidth >= 768 ? 500 : null}/>
             </div>
             <Footer/>
         </div>

@@ -3,7 +3,6 @@ import styles from './styles.module.css';
 function Footer(props) {
   let width = "100%";
   let display = "unset";
-
   if(props.width)
   {
     width = props.width;
@@ -12,7 +11,6 @@ function Footer(props) {
   {
     display = props.display;
   }
-  
   return (
     <footer style={{width:width, display:display}}className={styles.footer}>
       <div className={styles.container}>

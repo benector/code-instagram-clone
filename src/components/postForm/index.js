@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import Header from "../header";
-import Footer from "../footer";
 import { API } from "../../api";
 import styles from './styles.module.css';
 
@@ -25,7 +23,11 @@ const PostForm = (props) => {
       setLoading(true);
       const response = await API.post("/posts", body);
       if (response.data.id) {
-        history.push('/');
+        if(props.redirect){
+          history.push('/');
+        }else{
+          window.location.reload();
+        }
       }
     } catch (error) {
       console.error(error);
@@ -36,7 +38,8 @@ const PostForm = (props) => {
 
   return (
       <div className={styles.addPost}>
-        <div className={styles.postForm} style={props.width ? {width:props.width} : {maxWidth: "100%"}}>
+        <div className={styles.postForm} 
+        style={props.home? {maxWidth: "100%"}: props.width ? {width:props.width} : {width: "90vw"}}>
           <h1 style={{textAlign: "center" }}>Criar novo post</h1>
           <input
             placeholder="Título"

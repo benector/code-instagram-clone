@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react";
-import { API , getAuthToken } from "../../api";
+import { API } from "../../api";
 import Header from "../header"
 import Footer from "../footer";
 import PostList from "../post-list";
@@ -71,7 +71,7 @@ function Home() {
             }
         </div>  
         <div className={styles.sidebar}>
-              <PostForm style={{display : "block"}}/>
+              <PostForm  home={true} style={{display : "block"}}/>
               <Footer width={"30%"} display={screenWidth >1024 ? "unset" : "none"} />
         </div>
         <Footer display={screenWidth > 1024 ? "none" : "unset"}/>

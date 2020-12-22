@@ -1,10 +1,11 @@
 
 .description{
-    padding: 0 1rem;
+    padding: 0 15px;
     font-size: 14px;
     display: flex;
     text-align: left;
     align-items: flex-start;
+    max-width: 100%;
   
   }
 .description b{
